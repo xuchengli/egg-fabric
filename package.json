@@ -8,9 +8,15 @@
   "keywords": [
     "egg",
     "eggPlugin",
-    "egg-plugin"
+    "egg-plugin",
+    "egg-plugin-fabric",
+    "egg-fabric",
+    "fabric"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "fabric-ca-client": "^1.4.4",
+    "fabric-client": "^1.4.4"
+  },
   "devDependencies": {
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
