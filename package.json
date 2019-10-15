@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-fabric.git"
+    "url": "git+https://github.com/xuchengli/egg-fabric.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/xuchengli/egg-fabric/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-fabric#readme",
+  "homepage": "https://github.com/xuchengli/egg-fabric#readme",
   "author": "Li Xu Cheng (lixucheng@aliyun.com)",
   "license": "MIT"
 }

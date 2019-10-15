@@ -45,6 +45,7 @@ exports.fabric = {
 ```js
 // {app_root}/config/config.default.js
 exports.fabric = {
+  'network-config': object <a common connection profile object> | string <a path to the configuration file>
 };
 ```
 
