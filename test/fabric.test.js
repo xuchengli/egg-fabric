@@ -14,9 +14,9 @@ describe('test/fabric.test.js', () => {
   after(() => app.close());
   afterEach(mock.restore);
 
-  it('should GET /', () => {
+  it('should GET /channel/create', () => {
     return app.httpRequest()
-      .get('/')
+      .get('/channel/create')
       .expect('hi, fabric')
       .expect(200);
   });

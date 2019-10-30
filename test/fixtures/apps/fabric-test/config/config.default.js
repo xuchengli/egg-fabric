@@ -7,7 +7,7 @@ module.exports = appInfo => {
     keys: '123456',
     fabric: {
       client: {
-        'network-config': path.join(appInfo.baseDir, 'test/fabric-network/connection.yaml'),
+        'network-config': path.join(appInfo.baseDir, 'fabric-network/connection.yaml'),
       },
     },
   };

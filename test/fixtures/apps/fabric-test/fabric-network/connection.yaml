@@ -3,11 +3,10 @@ name: fabric-network
 version: 1.0.0
 client:
     organization: Org1
-    connection:
-        timeout:
-            peer:
-                endorser: '300'
-            orderer: '300'
+    credentialStore:
+        path: './fabric-client-kvs'
+        cryptoStore:
+            path: './fabric-client-cvs'
 channels:
     mychannel:
         orderers:
