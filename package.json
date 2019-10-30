@@ -31,10 +31,10 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "pretest": "./test/fixtures/apps/fabric-test/fabric-network/start.sh",
+    "clean": "rm -rf fabric-client-*",
+    "pretest": "npm run clean && ./test/fixtures/apps/fabric-test/fabric-network/start.sh",
     "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
     "test-local": "egg-bin test",
-    "posttest": "./test/fixtures/apps/fabric-test/fabric-network/stop.sh",
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
