@@ -10,16 +10,16 @@ client:
 channels:
     mychannel:
         orderers:
-        - orderer.example.com
+            - orderer.example.com
         peers:
             peer0.org1.example.com: {}
 organizations:
     Org1:
         mspid: Org1MSP
         peers:
-        - peer0.org1.example.com
+            - peer0.org1.example.com
         certificateAuthorities:
-        - ca.example.com
+            - ca.example.com
 orderers:
     orderer.example.com:
         url: grpc://localhost:7050
@@ -30,3 +30,8 @@ certificateAuthorities:
     ca.example.com:
         url: http://localhost:7054
         caName: ca.example.com
+        # Fabric-CA supports dynamic user enrollment via REST APIs. A "root" user, a.k.a registrar, is
+        # needed to enroll and invoke new users.
+        registrar:
+            - enrollId: admin
+              enrollSecret: adminpw

@@ -1,8 +1,9 @@
 'use strict';
 
 const hfc = require('fabric-client');
-const ChainCode = require('./lib/chaincode');
+const User = require('./lib/user');
 const Channel = require('./lib/channel');
+const ChainCode = require('./lib/chaincode');
 
 module.exports = app => {
   app.addSingleton('fabric', async (config, app) => {
@@ -11,9 +12,10 @@ module.exports = app => {
 
     hfc.setConfigSetting('network-connection-profile', networkConfig);
 
+    const user = new User(app);
     const channel = new Channel(app);
     const chaincode = new ChainCode(app);
 
-    return { channel, chaincode };
+    return { user, channel, chaincode };
   });
 };
