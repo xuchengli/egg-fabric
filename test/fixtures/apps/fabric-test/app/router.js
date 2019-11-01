@@ -3,8 +3,6 @@
 module.exports = app => {
   const { router, controller } = app;
 
-  router.post('/user/register', controller.user.register);
-  router.post('/user/login', controller.user.login);
-
-  router.get('/channel/create', controller.channel.create);
+  router.post('/user/enroll', controller.user.enroll);
+  router.post('/channel/create', controller.channel.create);
 };

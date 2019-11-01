@@ -3,17 +3,11 @@
 const Controller = require('egg').Controller;
 
 class UserController extends Controller {
-  async register() {
+  async enroll() {
     const { ctx, app } = this;
-    const { username, password, role, attrs } = ctx.request.body;
+    const { username } = ctx.request.body;
 
-    ctx.body = await app.fabric.user.register(username, password, role, attrs);
-  }
-  async login() {
-    const { ctx, app } = this;
-    const { username, password } = ctx.request.body;
-
-    ctx.body = await app.fabric.user.login(username, password);
+    ctx.body = await app.fabric.ca.getRegisteredUser(username);
   }
 }
 

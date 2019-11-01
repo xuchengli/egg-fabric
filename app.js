@@ -1,7 +1,7 @@
 'use strict';
 
 const hfc = require('fabric-client');
-const User = require('./lib/user');
+const CA = require('./lib/ca');
 const Channel = require('./lib/channel');
 const ChainCode = require('./lib/chaincode');
 
@@ -12,10 +12,10 @@ module.exports = app => {
 
     hfc.setConfigSetting('network-connection-profile', networkConfig);
 
-    const user = new User(app);
+    const ca = new CA(app);
     const channel = new Channel(app);
     const chaincode = new ChainCode(app);
 
-    return { user, channel, chaincode };
+    return { ca, channel, chaincode };
   });
 };
