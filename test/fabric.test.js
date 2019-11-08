@@ -17,14 +17,16 @@ describe('====> test/fabric.test.js', () => {
 
   it('POST lixuc to /user/enroll', async () => {
     app.mockCsrf();
-    const result = await app.httpRequest()
+    await app.httpRequest()
       .post('/user/enroll')
       .type('form')
       .send({
         username: 'lixuc',
       })
-      .expect(200);
-    assert(result.body.signingIdentity && result.body.certificate && result.body.publicKey && result.body.privateKey);
+      .expect(200)
+      .then(res => {
+        assert(res.body.signingIdentity && res.body.certificate && res.body.publicKey && res.body.privateKey);
+      });
   });
 
   it('POST mychannel to /channel/create', async () => {
