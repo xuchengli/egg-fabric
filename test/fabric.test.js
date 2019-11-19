@@ -15,9 +15,11 @@ describe('====> test/fabric.test.js', () => {
   after(() => app.close());
   afterEach(mock.restore);
 
-  it('POST lixuc to /user/enroll', async () => {
+  process.env.HFC_LOGGING = '{"debug": "console", "info": "console"}';
+
+  it('POST lixuc to /user/enroll', () => {
     app.mockCsrf();
-    await app.httpRequest()
+    return app.httpRequest()
       .post('/user/enroll')
       .type('form')
       .send({
@@ -29,13 +31,12 @@ describe('====> test/fabric.test.js', () => {
       });
   });
 
-  it('POST mychannel to /channel/create', async () => {
+  it('POST mychannel to /channel/create', () => {
     app.mockCsrf();
-    await app.httpRequest()
+    return app.httpRequest()
       .post('/channel/create')
       .type('form')
       .send({
-        username: 'lixuc',
         channelname: 'mychannel',
       })
       .expect(200)

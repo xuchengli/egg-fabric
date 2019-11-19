@@ -10,11 +10,16 @@ module.exports = app => {
     const networkConfig = config['network-config'];
     app.coreLogger.info('[egg-fabric] network config: %j', networkConfig);
 
-    hfc.setConfigSetting('network-connection-profile', networkConfig);
+    // build a client context and load it with a connection profile
+    const client = hfc.loadFromConfig(networkConfig);
 
-    const ca = new CA(app);
-    const channel = new Channel(app);
-    const chaincode = new ChainCode(app);
+    // this will create both the state store and the crypto store based
+    // on the settings in the client section of the connection profile
+    await client.initCredentialStores();
+
+    const ca = new CA(app, client);
+    const channel = new Channel(app, client);
+    const chaincode = new ChainCode(app, client);
 
     return { ca, channel, chaincode };
   });
